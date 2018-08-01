@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {RNCamera} from 'react-native-camera';
-
+import { searchByFaceImage } from './clients/api';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -48,8 +48,9 @@ export default class App extends Component<Props> {
   takePicture = async function() {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
-      const data = await this.camera.takePictureAsync(options)
-      console.log(data.uri);
+      const data = await this.camera.takePictureAsync(options);
+      searchByFaceImage(data.uri)
+      .then(resp => console.log(resp));
     }
   };
 }
