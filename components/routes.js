@@ -7,7 +7,7 @@ import CameraView from './CameraView';
 const RouterComponent = () => {
   return (
       <Router sceneStyle={{paddingTop: 20}} hideNavBar>
-        <Scene key="main" hideNavBar={true}>
+        <Scene key="main">
           <Scene
               key="takePicture"
               component={CameraView}
@@ -15,8 +15,14 @@ const RouterComponent = () => {
               initial
               hideNavBar={true}
           />
-          <Scene hideNavBar={true} key="list" component={List} title="List People" />
-          <Scene hideNavBar={true} key="details" component={DetailsView} title="Details" />
+          <Scene hideNavBar={true}
+                 key="list"
+                 component={List}
+                 title="List People" />
+          <Scene hideNavBar={true}
+                 key="details"
+                 component={DetailsView}
+                 title="Details" />
         </Scene>
       </Router>
   );

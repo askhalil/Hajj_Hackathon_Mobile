@@ -27,12 +27,14 @@ class List extends Component {
   render() {
     return (
         <View>
-          <Header headerText={'List'}/>
-          <ListView
-              enableEmptySections
-              dataSource={this.dataSource}
-              renderRow={this.renderRow}
-          />
+          <Header back={true} headerText={'Scan Results'}/>
+          <View style={{height: '100%'}}>
+            <ListView
+                enableEmptySections
+                dataSource={this.dataSource}
+                renderRow={this.renderRow}
+            />
+          </View>
         </View>
 
     );

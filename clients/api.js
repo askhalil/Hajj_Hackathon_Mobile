@@ -1,7 +1,7 @@
 import axios from 'axios';
 import uuid from 'uuid/v4';
 
-const BASE_URL = 'https://08d97c9f.ngrok.io';
+const BASE_URL = 'https://labeebhq.com:8443';
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
