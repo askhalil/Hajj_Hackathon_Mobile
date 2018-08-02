@@ -1,4 +1,7 @@
 {
   "name": "Hajj_Hackathon_Mobile",
-  "displayName": "Hajj_Hackathon_Mobile"
+  "displayName": "Hajj_Hackathon_Mobile",
+  "expo": {
+    "sdkVersion": "29.0.0"
+  }
 }

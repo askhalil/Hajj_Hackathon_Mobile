@@ -1,8 +1,10 @@
 import axios from 'axios';
 import uuid from 'uuid/v4';
 
-axiosInstance = axios.create({
-  baseURL: 'https://94ed3f32.ngrok.io',
+const BASE_URL = 'https://08d97c9f.ngrok.io';
+
+const axiosInstance = axios.create({
+  baseURL: BASE_URL,
   withCredentials: false
 });
 
@@ -16,14 +18,22 @@ const searchByFaceImage = (imageUri) => {
     name: id
   });
 
-  return axiosInstance({
-    url: `/files/tests/${id}`,
-    method: 'POST',
+   return axios({
+    withCredentials: false,
+    url: `${BASE_URL}/files/tests`,
+    method: 'post',
     data: formData,
     headers: {
       'Content-Type': 'multipart/form-data'
     }
-  });
+  })
+   .then(function (response) {
+     return response.data;
+   });
+};
+
+const getImageUrl = (imageId) => {
+  return `${BASE_URL}/files/${imageId}`;
 };
 
 const searchByKeys = (keys) => {
@@ -33,5 +43,6 @@ const searchByKeys = (keys) => {
 
 export {
   searchByFaceImage,
-  searchByKeys
+  searchByKeys,
+  getImageUrl
 };
